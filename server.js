@@ -3,8 +3,8 @@ var url = require("url");
 var fs = require('fs');
 
 var options = {
-	key: fs.readFileSync('key.pem'),
-	cert: fs.readFileSync('cert.pem')
+	key: fs.readFileSync('https-keys/key.pem'),
+	cert: fs.readFileSync('https-keys/cert.pem')
 };
 
 function start(route, handle) {

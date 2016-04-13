@@ -3,7 +3,7 @@ var router = require("./router");
 var services = require("./services");
 
 var handle = {
-	'/': services.index
+	'/api/file': services.file
 };
 
 server.start(router.route, handle);

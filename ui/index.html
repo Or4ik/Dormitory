@@ -3,8 +3,15 @@
 	<head>
 		<title>Index</title>
 		<meta charset="utf-8"/>
+		<script type="text/javascript" src="js/libs/angular.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/controllers.js"></script>
+		<script type="text/javascript" src="js/services.js"></script>
 	</head>
-	<body>
+	<body ng-app="Dormitory">
 		<h1>Hello world!</h1>
+		<div ng-controller="MainPage">
+			{{data}}
+		</div>
 	</body>
 </html>
