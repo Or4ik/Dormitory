@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+        <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/app.js"></script>
+        <script src="js/home/HomeService.js"></script>
+        <script src="js/home/HomeCtrl.js"></script>
+
+        <script src="js/olena/OlenaCtrl.js"></script>
+    </head>
+
+    <body ng-app="app">
+        <div ng-controller = "HomeCtrl">
+            <h2> Typing text=" {{text.typingtext}}" </h2>
+            <input type="text" placeholder="Type here..." ng-model="text.typingtext1">
+            <input type="text" ng-model="text.typingtext2">
+            <input type="text" ng-model="text.typingtext3">
+            <input type="text" ng-model="text.typingtext4">
+            <button type="button" ng-click="sendRequest(text)" >POST</button>
+
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Static title">Static content</uib-tab>
+                <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+                    {{tab.content}}
+                    <div ng-include="tab.contentUrl"></div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </body>
+</html>

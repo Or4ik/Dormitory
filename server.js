@@ -1,19 +1,11 @@
-var https = require('https');
-var url = require("url");
-var fs = require('fs');
+function startServer (handlers, router) {
+    var http   = require('http');
 
-var options = {
-	key: fs.readFileSync('https-keys/key.pem'),
-	cert: fs.readFileSync('https-keys/cert.pem')
+    http.createServer(function (request, response) {
+        var url = request.url;
+        router(handlers, url, request, response);
+    }).listen(8888);
+    console.log('server started at 8888');
 };
 
-function start(route, handle) {
-	function onRequest(request, response) {
-		var pathname = url.parse(request.url).pathname;
-		console.log("Request for " + pathname + " received.");
-		route(handle, pathname, response, request);
-	}
-	https.createServer(options, onRequest).listen(8000);
-}
-
-exports.start = start;
+exports.start = startServer;

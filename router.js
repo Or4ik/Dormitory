@@ -1,23 +1,25 @@
 var static = require('node-static');
 var staticServer = new static.Server();
 
-function route(handle, pathname, response, request) {
-	console.log("About to route a request for " + pathname);
-	if (pathname.includes('/api/')) {
-		if (typeof handle[pathname] === 'function') {
-			handle[pathname](response, request);
-		} else {
-			console.log("No request handler found for " + pathname);
-			response.writeHead(404, {"Content-Type": "text/html"});
-			response.write("404 Not found");
-			response.end();
-		}
-	} else {
-		request.addListener('end', function () {
-			staticServer.serve(request, response);
-		}).resume();
-	}
-	
+function route(handlers, url, request, response) {
+    console.log("About to route a request for " + url);
+
+    if (url.includes('/api/')) {
+        if (typeof handlers[url] === 'function') {
+            handlers[url](request, response);
+        } else {
+            console.log("No request handlers found for " + url);
+            response.writeHead(404, {"Content-Type": "text/html"});
+            response.write("404 Not found");
+            response.end();
+        }
+    }
+    else {
+        request.addListener('end', function () {
+            staticServer.serve(request, response);
+        }).resume();
+    }
+
 }
 
 exports.route = route;

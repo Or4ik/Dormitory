@@ -1,11 +1,8 @@
-var server = require("./server");
-var router = require("./router");
-var services = require("./services");
+var server   = require('./server');
+var services = require('./services');
+var router   = require('./router');
 
-var handle = {
-	'/api/file': services.file
+var handlers = {
+    "/api/getTabs" : services.getTabs
 };
-
-server.start(router.route, handle);
-
-console.log('started at 8000');
+server.start(handlers, router.route);
