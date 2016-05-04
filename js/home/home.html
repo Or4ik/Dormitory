@@ -1,0 +1,16 @@
+<h2> Typing text=" {{text.typingtext}}" </h2>
+<input type="text" placeholder="Type here..." ng-model="text.typingtext1">
+<input type="text" ng-model="text.typingtext2">
+<input type="text" ng-model="text.typingtext3">
+<input type="text" ng-model="text.typingtext4">
+<button type="button" ng-click="sendRequest(text)" >POST</button>
+<br>
+<calendar label="label" mytext="text" ></calendar>
+<br>
+<uib-tabset active="active">
+    <uib-tab index="0" heading="Static title">Static content</uib-tab>
+    <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+        {{tab.content}}
+        <div ng-include="tab.contentUrl"></div>
+    </uib-tab>
+</uib-tabset>

@@ -4,6 +4,7 @@ App.controller('HomeCtrl',function($scope, HomeService){
         typingtext2 : 2,
         typingtext3 : 3
     };
+    $scope.label = "Hello Calendar!";
 
     $scope.sendRequest = function (values) {
 	    HomeService.save(values).then(function (response) {
