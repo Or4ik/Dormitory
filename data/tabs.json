@@ -2,7 +2,7 @@
     "tabs" : [
 		{ "title":"Olena", "content" : "Content from Olena", "contentUrl": "js/olena/partial.html", "disabled": false },
 		{ "title":"Taras", "content" : "Content from Taras", "disabled": false },
-		{ "title":"Andriy", "content" : "Content from Andriy", "disabled": false },
+		{ "title":"Andriy", "content" : "Content from Andriy", "contentUrl": "js/andriy/wellcome.html", "disabled": false },
 		{ "title":"Orest", "content" : "Content from Orest", "disabled": false },
 		{ "title":"Christina", "content" : "Content from Christina", "disabled": false },
 		{ "title":"Yaroslav", "content" : "Content from Yaroslav", "disabled": false },
