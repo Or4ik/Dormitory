@@ -5,7 +5,7 @@ App.controller('CarouselCtrl', function ($scope) {
   var slides = $scope.slides = [];
   var currIndex = 0;
 
-  $scope.addSlide = function() {
+  function addSlide() {
     var newWidth = 600 + slides.length + 1;
     slides.push({
       image: 'http://lorempixel.com/' + newWidth + '/300',
@@ -13,12 +13,7 @@ App.controller('CarouselCtrl', function ($scope) {
     });
   };
 
-  $scope.randomize = function() {
-    var indexes = generateIndexesArray();
-    assignNewIndexesToSlides(indexes);
-  };
-
-  for (var i = 0; i < 4; i++) {
-    $scope.addSlide();
+  for (var i = 0; i < 5; i++) {
+    addSlide();
   }
 });
